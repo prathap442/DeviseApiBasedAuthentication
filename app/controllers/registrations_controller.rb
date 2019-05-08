@@ -16,7 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
         respond_with(resource) do |format|
           format.json { render json: {resource: resource, status: 200 }}
-          binding.pry
         end
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
